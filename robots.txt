@@ -1,0 +1,7 @@
+User-agent: *
+
+Disallow: /includes/
+Disallow: /modules/
+Disallow: /pages/
+
+Sitemap: url
