@@ -22,11 +22,11 @@ $pagesRoutes = [
 	// colocar no parametro da função is_dinamic: true
 	// coloque sempre páginas dinamicas no final da array
 	new PagesRequest("/", "pages/home.php"),
-	new PagesRequest("/email-send", "includes/configurations/mail_configuration.php"),
-	new PagesRequest("/404", "pages/404_page.php"),
-	new PagesRequest("thank-you-page", "pages/thank_you_page.php"),
+	new PagesRequest("/email-sent", "includes/configurations/mailConfiguration.php"),
+	new PagesRequest("/404", "pages/404Page.php"),
+	new PagesRequest("thank-you-page", "pages/thankYouPage.php"),
 	new PagesRequest("/mapa-site", "pages/sitemap.php"),
-	new PagesRequest("/", "pages/conversion_page.php", true)
+	new PagesRequest("/", "pages/conversionPage.php", true)
 ];
 
 $archivesRoutes = [

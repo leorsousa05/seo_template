@@ -8,9 +8,10 @@ $isDinamicPage = $uri !== "/" && $uri !== "/404" && $uri !== "/mapa-site";
 $seoTextProvider = new SeoTextProvider($uri);
 
 $seoRouteData = $seoTextProvider->getCurrentRouteSeoContent();
+$seoDataJson = $seoTextProvider->getSeoJsonArray();
 
 if ($isDinamicPage) {
-	if (!isset($seoTextProvider->getCurrentRouteSeoContent())) {
+	if (is_null($seoTextProvider->getCurrentRouteSeoContent())) {
 		echo '<script type="text/javascript">
             window.location = "/404"
                </script>';
@@ -25,13 +26,13 @@ if ($isDinamicPage) {
 	<?php if ($isDinamicPage) { ?>
 		<meta name="description" content="<?= $seoRouteData["description"] ?>">
 		<meta property="og:description" content="<?= $seoRouteData["description"] ?>">
-		<meta property="og:title" content="<?= $seoRouteData["first_title"] ?>" />
+		<meta property="og:title" content="<?= $seoRouteData["title"] ?>" />
 		<title><?= $seoRouteData["first_title"] ?></title>
 	<?php } else { ?>
 		<meta name="description" content="<?= $websiteDescription ?>">
 		<meta property="og:description" content="<?= $websiteDescription ?>">
 		<meta property="og:title" content="<?= $websiteTitle ?>" />
-		<title><?= $website_title ?></title>
+		<title><?= $websiteTitle ?></title>
 	<?php } ?>
 	<meta name="description" content="<?= $websiteDescription ?>">
 	<meta name="keywords" content="<?= $websiteKeywords ?>">

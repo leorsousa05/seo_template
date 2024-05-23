@@ -12,12 +12,13 @@ class SeoTextProvider
 		$seoJsonArray = [];
 
 		foreach ($seoDataJson as $data) {
-			array_push($seoJsonArr, $data);
+			array_push($seoJsonArray, $data);
 		}
 
-		foreach ($seoDataJson as $key => $routeData) {
+		foreach ($seoDataJson as $routeData) {
 			if ($routeData["link"] == $pageUri) {
 				$currentRouteSeoContent = $routeData;
+				break;
 			}
 		}
 
