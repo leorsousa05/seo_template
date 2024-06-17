@@ -2,13 +2,12 @@
 
 class SeoTextProvider
 {
-	private $currentRouteSeoContent = [];
+	private $currentRouteSeoContent;
 	private $seoJsonArray = [];
 
 	function __construct($pageUri)
 	{
 		$seoDataJson = json_decode(file_get_contents('seoData.json'));
-		$currentRouteSeoContent = [];
 		$seoJsonArray = [];
 
 		foreach ($seoDataJson as $data) {
@@ -16,14 +15,13 @@ class SeoTextProvider
 		}
 
 		foreach ($seoDataJson as $routeData) {
-			if ($routeData["link"] == $pageUri) {
-				$currentRouteSeoContent = $routeData;
+			if ($routeData->link == $pageUri) {
+				$this->currentRouteSeoContent = $routeData;
 				break;
 			}
 		}
 
 		$this->seoJsonArray = $seoJsonArray;
-		$this->currentRouteSeoContent = $currentRouteSeoContent;
 	}
 
 	public function getCurrentRouteSeoContent()
