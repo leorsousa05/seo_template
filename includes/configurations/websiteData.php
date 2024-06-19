@@ -1,5 +1,5 @@
 <?php
-$cssFolder = "";
+$cssFolder = "assets/css";
 
 // Informações do Head
 $websiteTitle          = "";
