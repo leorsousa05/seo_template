@@ -25,21 +25,15 @@ $creditsClientName = "";
 // nas arrays critical.
 // Oque não for importante como sliders e fontawesome, colocar no 
 // nonImportant para o carregamento ser mais rápido.
-$criticalWebsiteStylesheets = [
-	$cssFolder . "/main.css",
-	$cssFolder . "/components.css",
+$websiteStylesheets = [
+	new AssetsImports($cssFolder . "/main.css", DefaultAssetsImports::CRITICAL),
+	new AssetsImports($cssFolder .  "/components.css", DefaultAssetsImports::CRITICAL),
+	new AssetsImports("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css", DefaultAssetsImports::NONCRITICAL)
 ];
 
-$criticalWebsiteScripts = [
-	$jsFolder . "/main.js"
-];
-
-$nonImportantwebsiteStylesheets = [
-	//"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-];
-
-$nonImportantWebsiteScripts = [
-	//"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"
+$websiteScripts = [
+	new AssetsImports($jsFolder . "/main.js", DefaultAssetsImports::CRITICAL),
+	new AssetsImports("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js", DefaultAssetsImports::NONCRITICAL)
 ];
 
 // Fontes do website para preload

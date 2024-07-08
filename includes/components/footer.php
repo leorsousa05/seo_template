@@ -1,7 +1,10 @@
-<?php foreach ($criticalWebsiteScripts as $key => $scripts) { ?>
-	<script src="<?= $scripts ?>" async></script>
-<?php } ?>
-
-<?php foreach ($nonImportantWebsiteScripts as $key => $scripts) { ?>
-	<script src="<?= $scripts ?>" defer></script>
-<?php } ?>
+<?php foreach ($websiteScripts as $key => $script) {
+	switch ($script->getType()) {
+		case DefaultAssetsImports::CRITICAL:
+			echo "<script src=\"" . $script->getUrl() . "\" async></script>";
+			break;
+		case DefaultAssetsImports::NONCRITICAL:
+			echo "<script src=\"" . $script->getUrl() . "\" defer></script>";
+			break;
+	}
+}

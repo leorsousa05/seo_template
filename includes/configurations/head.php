@@ -1,5 +1,5 @@
 <?php
-require("includes/configurations/utils/fontImport.php");
+require("includes/configurations/utils/imports.php");
 require 'websiteData.php';
 require 'seoDataFunctions.php';
 
@@ -79,15 +79,19 @@ if ($showCredits) {
 		</noscript>
 	<?php } ?>
 
-	<?php foreach ($nonImportantwebsiteStylesheets as $key => $stylesheets) { ?>
-		<link rel="stylesheet" href="<?= $stylesheets ?>" media="print" onload="this.media='all'">
-		<noscript>
-			<link rel="stylesheet" href="<?= $stylesheets ?>">
-		</noscript>
-	<?php } ?>
-
-	<?php foreach ($criticalWebsiteStylesheets as $key => $stylesheets) { ?>
-		<link rel="stylesheet" href="<?= $stylesheets ?>">
-	<?php } ?>
+	<?php foreach ($websiteStylesheets as $key => $stylesheet) {
+        switch ($stylesheet->getType()) {
+            case DefaultAssetsImports::CRITICAL:
+                echo "<link rel=\"stylesheet\" href=\"" . $stylesheet->getUrl() . "\">";
+                break;
+            case DefaultAssetsImports::NONCRITICAL:
+                echo "
+        <link rel=\"stylesheet\" href=\"" . $stylesheet->getUrl() . "\" media=\"print\" onload=\"this.media='all'\">
+        <noscript>
+            <link rel=\"stylesheet\" href=\"" . $stylesheet->getUrl() . "\">
+        </noscript>";
+        }
+    ?>
+    <?php } ?>
 
 </head>
