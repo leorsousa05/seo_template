@@ -1,6 +1,8 @@
 <header class="header">
 	<div class="header__container">
-		<h1>Logo</h1>
+		<a class="header__container__logo" href="#">
+			<img class="header__container__logo__image" src="https://www.hubspot.com/hs-fs/hubfs/Shell_logo.svg.png?width=450&height=417&name=Shell_logo.svg.png" alt="Logo example">
+		</a>
 
 		<ul class="header__container__nav" id="nav_menu">
 			<li><a class="header__container__nav__item" href="#">Home</a></li>

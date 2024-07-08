@@ -2,7 +2,6 @@
 	height: 100px;
 	display: flex;
 	justify-content: center;
-	background: linear-gradient(#121212, var(--blue));
 }
 
 .header__container {
@@ -16,7 +15,11 @@
 	color: white;
 }
 
-.header__container__image {
+.header__container__logo {
+	height: 100%;
+}
+
+.header__container__logo__image {
 	height: 100%;
 }
 
