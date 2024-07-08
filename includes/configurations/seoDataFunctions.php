@@ -3,6 +3,7 @@
 class SeoTextProvider
 {
 	private $currentRouteSeoContent;
+	private $currentSeoLink;
 	private $seoJsonArray = [];
 
 	function __construct($pageUri)
@@ -14,9 +15,11 @@ class SeoTextProvider
 			array_push($seoJsonArray, $data);
 		}
 
-		foreach ($seoDataJson as $routeData) {
-			if ($routeData->link == $pageUri) {
-				$this->currentRouteSeoContent = $routeData;
+
+		foreach (array_keys(get_object_vars($seoDataJson)) as $routeData) {
+			if ("/" . $routeData == $pageUri) {
+				$this->currentSeoLink = $routeData;
+				$this->currentRouteSeoContent = json_decode(file_get_contents('seoData.json'), true)[$routeData];
 				break;
 			}
 		}
@@ -32,5 +35,10 @@ class SeoTextProvider
 	public function getSeoJsonArray()
 	{
 		return $this->seoJsonArray;
+	}
+
+	public function getCurrentSeoLink()
+	{
+		return $this->currentSeoLink;
 	}
 }

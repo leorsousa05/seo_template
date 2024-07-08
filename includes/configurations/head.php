@@ -36,7 +36,7 @@ if ($showCredits) {
 		<meta name="description" content="<?= $seoRouteData["description"] ?>">
 		<meta property="og:description" content="<?= $seoRouteData["description"] ?>">
 		<meta property="og:title" content="<?= $seoRouteData["title"] ?>" />
-		<title><?= $seoRouteData["first_title"] ?></title>
+		<title><?= $seoRouteData["title"] ?></title>
 	<?php } else { ?>
 		<meta name="description" content="<?= $websiteDescription ?>">
 		<meta property="og:description" content="<?= $websiteDescription ?>">
@@ -80,18 +80,18 @@ if ($showCredits) {
 	<?php } ?>
 
 	<?php foreach ($websiteStylesheets as $key => $stylesheet) {
-        switch ($stylesheet->getType()) {
-            case DefaultAssetsImports::CRITICAL:
-                echo "<link rel=\"stylesheet\" href=\"" . $stylesheet->getUrl() . "\">";
-                break;
-            case DefaultAssetsImports::NONCRITICAL:
-                echo "
+		switch ($stylesheet->getType()) {
+			case DefaultAssetsImports::CRITICAL:
+				echo "<link rel=\"stylesheet\" href=\"" . $stylesheet->getUrl() . "\">";
+				break;
+			case DefaultAssetsImports::NONCRITICAL:
+				echo "
         <link rel=\"stylesheet\" href=\"" . $stylesheet->getUrl() . "\" media=\"print\" onload=\"this.media='all'\">
         <noscript>
             <link rel=\"stylesheet\" href=\"" . $stylesheet->getUrl() . "\">
         </noscript>";
-        }
-    ?>
-    <?php } ?>
+		}
+	?>
+	<?php } ?>
 
 </head>

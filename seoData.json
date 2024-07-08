@@ -1,6 +1,7 @@
 {
-    "link do site": {
-        "link": "Link do site",
-        "Texto": "texto"
-    }
+	"teste-seo-template": {
+		"content": "<h1>Teste SEO Template</h1>",
+		"description": "Teste agora o SEO Template do Leonardo",
+		"title": "Teste SEO Template"
+	}
 }
