@@ -61,6 +61,10 @@ if ($showCredits) {
 	<link rel="canonical" href="<?= $websiteUrl ?><?= $uri ?>" />
 	<base href="/">
 
+	<?php foreach ($imagePreload as $key => $font) { 
+		echo "<link rel=\"preload\" href=\"$imagePreload\" as=\"image\"";
+	?>
+
 	<?php foreach ($websiteFonts as $key => $font) { ?>
 		<?php switch ($font->getType()) {
 			case FontCDNImporter::GOOGLE:
