@@ -1,5 +1,7 @@
 <?php
+
 $cssFolder = "assets/css";
+$jsFolder = "assets/js";
 
 // Informações do Head
 $websiteTitle          = "";
@@ -8,6 +10,43 @@ $websiteDescription    = "";
 $websiteKeywords       = "";
 $websiteAuthor         = "";
 $websiteUrl            = "";
+$geoRegion = "BR-SP";
+$geoPosition = "";
+$classification = "";
+$icbm = "";
+$indexPage = true;
+$showCredits = true;
+$creditsAuthor = "Digitall Evolution";
+$creditsUrl = "https://digitallevolution.com.br/";
+$creditsClientName = "";
+
+// CSS e Javascript usados no website.
+// Colocar CSS e JS crítico e importante para o carregamento da página
+// nas arrays critical.
+// Oque não for importante como sliders e fontawesome, colocar no 
+// nonImportant para o carregamento ser mais rápido.
+$criticalWebsiteStylesheets = [
+	$cssFolder . "/main.css",
+	$cssFolder . "/components.css",
+];
+
+$criticalWebsiteScripts = [
+	$jsFolder . "/main.js"
+];
+
+$nonImportantwebsiteStylesheets = [
+	//"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+];
+
+$nonImportantWebsiteScripts = [
+	//"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"
+];
+
+// Fontes do website para preload
+$websiteFonts = [
+	new Font("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap", FontCDNImporter::GOOGLE),
+];
+
 
 // Configurações de Email
 /*
@@ -15,20 +54,14 @@ $host           = "";                       // Host SMTP
 $hostUsername  = "";                       // Email do Host
 $hostPassword  = "";                       // Senha do Host
 
+if(str_contains($uri, "/email")) {
 $mailForm      = $_GET["email"];
 $nameForm      = $_GET["name"];
 $phoneNumber   = $_GET["phone-number"];
 $message        = $_GET["message"];
+}
 $subject        = "";                       // Assunto do Email
 $date           = date("d/m/Y H:i:s");      // Data de Envio
 $ip             = $_SERVER['REMOTE_ADDR'];  // IP do Usuário
 $receiver       = "";                       // Pessoa que Recebe o Email
 */
-
-// CSS usados no website
-// Obs.: se quiser usar CSS especifico em alguma página
-// Pode fazer aqui mesmo a função PHP
-$websiteStylesheets = [
-	$cssFolder . "/main.css",
-	$cssFolder . "/components.css",
-];
