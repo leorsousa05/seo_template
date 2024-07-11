@@ -43,7 +43,7 @@ $websiteFonts = [
 
 $imagePreload = [
 	"https://www.hubspot.com/hs-fs/hubfs/Shell_logo.svg.png?width=450&height=417&name=Shell_logo.svg.png"
-]
+];
 
 
 // Configurações de Email
