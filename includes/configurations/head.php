@@ -62,7 +62,7 @@ if ($showCredits) {
 	<base href="/">
 
 	<?php foreach ($imagePreload as $key => $image) {
-		echo "<link rel=\"preload\" href=\"$image\" as=\"image\"";
+		echo "<link rel=\"preload\" href=\"$image\" as=\"image\">";
 	}
 	?>
 
