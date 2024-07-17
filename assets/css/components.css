@@ -2,6 +2,10 @@
 	--max-width-screen: 1080px;
 }
 
+html {
+	font-size: clamp(0.875rem, 0.7672rem + 0.3448vw, 1rem);
+}
+
 .header {
 	height: 100px;
 	display: flex;
