@@ -1,11 +1,11 @@
 <?php
-require("includes/configurations/utils/imports.php");
-require 'websiteData.php';
+require_once("includes/configurations/utils/constants.php");
+require_once("includes/configurations/utils/imports.php");
+require_once('websiteData.php');
 require 'seoDataFunctions.php';
 
 $uri = $_SERVER["REQUEST_URI"];
-$nonDinamicPages = ["/", "/404", "/mapa-site", "/agradecimentos", "/email-enviado"];
-$isDinamicPage = !in_array($uri, $nonDinamicPages);
+$isDinamicPage = !in_array($uri, NON_DINAMIC_PAGES);
 
 $seoTextProvider = new SeoTextProvider($uri);
 $seoRouteData = $seoTextProvider->getCurrentRouteSeoContent();

@@ -1,3 +1,7 @@
+:root {
+	--max-width-screen: 1080px;
+}
+
 .header {
 	height: 100px;
 	display: flex;
@@ -75,6 +79,31 @@
 	height: 100vh;
 }
 
+.sitemap {
+	display: flex;
+	justify-content: center;
+}
+
+.sitemap__container {
+	display: flex;
+	max-width: var(--max-width-screen);
+	padding: 32px;
+	width: 100%;
+	align-items: center;
+}
+
+.sitemap__container__links {
+	list-style: decimal;
+}
+
+.sitemap__container__links__link {
+	color: white;
+}
+
+.sitemap__container__links__link::marker {
+	color: white;
+}
+
 @media screen and (max-width: 1080px) {
 	.header__container__nav {
 		position: absolute;
@@ -102,5 +131,11 @@
 
 	.header__container__burger_menu {
 		display: flex;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.header__container__nav {
+		width: 100%;
 	}
 }

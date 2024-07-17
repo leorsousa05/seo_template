@@ -1,8 +1,5 @@
 <?php
 
-$cssFolder = "assets/css";
-$jsFolder = "assets/js";
-
 // Informações do Head
 $websiteTitle          = "";
 $websiteName           = "";
@@ -26,13 +23,13 @@ $creditsClientName = "";
 // Oque não for importante como sliders e fontawesome, colocar no 
 // nonImportant para o carregamento ser mais rápido.
 $websiteStylesheets = [
-	new AssetsImports($cssFolder . "/main.css", DefaultAssetsImports::CRITICAL),
-	new AssetsImports($cssFolder .  "/components.css", DefaultAssetsImports::CRITICAL),
+	new AssetsImports(CSS_FOLDER . "/main.css", DefaultAssetsImports::CRITICAL),
+	new AssetsImports(CSS_FOLDER .  "/components.css", DefaultAssetsImports::CRITICAL),
 	new AssetsImports("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css", DefaultAssetsImports::NONCRITICAL)
 ];
 
 $websiteScripts = [
-	new AssetsImports($jsFolder . "/main.js", DefaultAssetsImports::CRITICAL),
+	new AssetsImports(JS_FOLDER . "/main.js", DefaultAssetsImports::CRITICAL),
 	new AssetsImports("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js", DefaultAssetsImports::NONCRITICAL)
 ];
 
