@@ -1,5 +1,4 @@
 <?php
-require 'modules/AltoRouter.php';
 require 'routerFunctions.php';
 $router = new AltoRouter();
 
