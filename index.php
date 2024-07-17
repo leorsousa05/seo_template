@@ -8,4 +8,4 @@ header('Expires: ' . gmdate('D, d M Y H:i:s', time() + 3600) . ' GMT');
 
 
 require 'vendor/autoload.php';
-require 'includes/configurations/routes.php';
+require 'src/utils/routes.php';

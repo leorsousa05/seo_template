@@ -1,5 +1,8 @@
 {
 	"require-dev": {
 		"altorouter/altorouter": "^2.0"
+	},
+	"require": {
+		"phpmailer/phpmailer": "^6.9"
 	}
 }

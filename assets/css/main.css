@@ -9,3 +9,12 @@
 body {
 	background-color: #121212;
 }
+
+.hero {
+	height: calc(100vh - 100px);
+}
+
+.hero__container {
+	justify-content: center;
+	align-items: center;
+}

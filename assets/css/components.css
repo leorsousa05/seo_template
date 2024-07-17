@@ -104,6 +104,17 @@
 	color: white;
 }
 
+.section--center {
+	display: flex;
+	justify-content: center;
+}
+
+.container--maxwidth {
+	display: flex;
+	max-width: var(--max-width-screen);
+	width: 100%;
+}
+
 @media screen and (max-width: 1080px) {
 	.header__container__nav {
 		position: absolute;
