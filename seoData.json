@@ -1,6 +1,6 @@
 {
 	"teste-seo-template": {
-		"content": "<h1>Teste SEO Template</h1>",
+		"content": "<h1>Teste SEO Template</h1><p>Hello bro</p>",
 		"description": "Teste agora o SEO Template do Leonardo",
 		"title": "Teste SEO Template"
 	},

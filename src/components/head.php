@@ -1,7 +1,4 @@
 <?php
-
-$uri = $_SERVER["REQUEST_URI"];
-
 require_once('src/utils/websiteData.php');
 require_once('src/utils/seoDataFunctions.php');
 

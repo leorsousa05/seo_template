@@ -16,7 +16,7 @@ class SeoTextProvider
 
 
 		foreach (array_keys(get_object_vars($seoDataJson)) as $routeData) {
-			if (WEBSITE_FOLDER . "/" . $routeData == $pageUri) {
+			if (WEBSITE_FOLDER . $routeData == $pageUri) {
 				$this->currentSeoLink = $routeData;
 				$this->currentRouteSeoContent = json_decode(file_get_contents('seoData.json'), true)[$routeData];
 				break;
