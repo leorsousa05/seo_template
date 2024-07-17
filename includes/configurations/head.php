@@ -4,7 +4,7 @@ require 'websiteData.php';
 require 'seoDataFunctions.php';
 
 $uri = $_SERVER["REQUEST_URI"];
-$nonDinamicPages = ["/", "/404", "/mapa-site"];
+$nonDinamicPages = ["/", "/404", "/mapa-site", "/agradecimentos", "/email-enviado"];
 $isDinamicPage = !in_array($uri, $nonDinamicPages);
 
 $seoTextProvider = new SeoTextProvider($uri);

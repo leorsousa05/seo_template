@@ -11,7 +11,6 @@ $assetsRoutes = [
 	new AssetsRequest("/assets/css/", "Content-Type: text/css"),
 	new AssetsRequest("/assets/images/", "Content-Type: image/webp"),
 	new AssetsRequest("/assets/js/", "Content-Type: text/javascript"),
-	new AssetsRequest("/modules/", "Content-Type: text/javascript"),
 ];
 
 $pagesRoutes = [
@@ -21,9 +20,9 @@ $pagesRoutes = [
 	// colocar no parametro da função is_dinamic: true
 	// coloque sempre páginas dinamicas no final da array
 	new PagesRequest("/", "pages/home.php"),
-	new PagesRequest("/email-sent", "includes/configurations/mailConfiguration.php"),
+	new PagesRequest("/email-enviado", "includes/configurations/mailConfiguration.php"),
 	new PagesRequest("/404", "pages/404Page.php"),
-	new PagesRequest("thank-you-page", "pages/thankYouPage.php"),
+	new PagesRequest("/agradecimentos", "pages/thankYouPage.php"),
 	new PagesRequest("/mapa-site", "pages/sitemap.php"),
 	new PagesRequest("/", "pages/conversionPage.php", true)
 ];

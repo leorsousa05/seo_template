@@ -6,9 +6,10 @@
 	<?php include 'includes/components/header.php' ?>
 	<main>
 		<?= $seoRouteData["content"] ?>
+	</main>
 
-		<?php include 'includes/components/footer.php' ?>
-		<?php include 'includes/configurations/schemaData.php' ?>
+	<?php include 'includes/components/footer.php' ?>
+	<?php include 'includes/configurations/schemaData.php' ?>
 </body>
 
 </html>

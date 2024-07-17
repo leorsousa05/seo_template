@@ -67,6 +67,14 @@
 	transition: all 0.3s ease-in-out;
 }
 
+.secondary_page {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
 @media screen and (max-width: 1080px) {
 	.header__container__nav {
 		position: absolute;
