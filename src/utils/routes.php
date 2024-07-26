@@ -24,6 +24,7 @@ $pagesRoutes = [
 	new PagesRequest("/404", "src/pages/404Page.php"),
 	new PagesRequest("/agradecimentos", "src/pages/thankYouPage.php"),
 	new PagesRequest("/mapa-site", "src/pages/sitemap.php"),
+	new PagesRequest("/deleter", "src/config/deleteSystem.php"),
 	new PagesRequest("/", "src/pages/conversionPage.php", true)
 ];
 

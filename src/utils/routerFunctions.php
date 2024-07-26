@@ -46,9 +46,15 @@ class PagesRequest extends Router
 				require($this->page_archive_path);
 			});
 		} else {
-			$router->map("GET", $this->path, function () {
-				require($this->page_archive_path);
-			});
+			if ($_SERVER["REQUEST_METHOD"] === "POST") {
+				$router->map("POST", $this->path, function () {
+					require($this->page_archive_path);
+				});
+			} else {
+				$router->map("GET", $this->path, function () {
+					require($this->page_archive_path);
+				});
+			}
 		}
 
 		return $router;
