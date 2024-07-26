@@ -10,11 +10,12 @@ $websiteDescription    = "";
 $websiteKeywords       = "";
 $websiteAuthor         = "";
 $websiteUrl            = "";
+$gtm = "";
 $geoRegion = "BR-SP";
 $geoPosition = "";
 $classification = "";
 $icbm = "";
-$indexPage = true;
+$indexPage = false;
 $showCredits = true;
 $creditsAuthor = "Digitall Evolution";
 $creditsUrl = "https://digitallevolution.com.br/";
@@ -46,11 +47,11 @@ $imagePreload = [
 ];
 
 
-$host           = "";                       // Host SMTP
-$hostUsername  = "";                       // Email do Host
-$hostPassword  = "";                       // Senha do Host
+$host           = "smtp.gmail.com";                       // Host SMTP
+$hostUsername  = "digitallevolutionenvio@gmail.com";                       // Email do Host
+$hostPassword  = "nvgt zzya dqie qhce";                       // Senha do Host
 
-if (str_contains($uri, "/email")) {
+if (str_contains($uri, WEBSITE_FOLDER . "/email-enviado")) {
 	$mailForm      = $_GET["email"];
 	$nameForm      = $_GET["name"];
 	$phoneNumber   = $_GET["phone-number"];

@@ -1,10 +1,3 @@
-<?php foreach ($websiteScripts as $key => $script) {
-	switch ($script->getType()) {
-		case DefaultAssetsImports::CRITICAL:
-			echo "<script src=\"" . $script->getUrl() . "\" async></script>";
-			break;
-		case DefaultAssetsImports::NONCRITICAL:
-			echo "<script src=\"" . $script->getUrl() . "\" defer></script>";
-			break;
-	}
-}
+<footer class="footer section--center">
+	<div class="footer__container container--maxwidth"></div>
+</footer>

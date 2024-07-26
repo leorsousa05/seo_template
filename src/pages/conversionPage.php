@@ -9,6 +9,7 @@
 	</main>
 
 	<?php include 'src/components/footer.php' ?>
+	<?php include 'src/utils/scripts.php' ?>
 	<?php include 'src/utils/schemaData.php' ?>
 </body>
 

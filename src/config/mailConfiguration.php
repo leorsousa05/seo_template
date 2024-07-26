@@ -32,4 +32,4 @@ $mail->Body .=  utf8_decode("<strong>Nome: </strong>") . utf8_decode($nameForm) 
 $mail->MsgHTML($mail->Body);
 
 $mail->send();
-echo "<meta http-equiv='refresh' content='0; URL=/thank-you-page'>";
+echo "<meta http-equiv='refresh' content='0; URL=/agradecimentos'>";

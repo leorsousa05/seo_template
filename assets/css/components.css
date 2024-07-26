@@ -3,7 +3,7 @@
 }
 
 html {
-	font-size: clamp(0.875rem, 0.7672rem + 0.3448vw, 1rem);
+	font-size: clamp(0.6rem, 0.7672rem + 0.3448vw, 1rem);
 }
 
 .header {
@@ -119,6 +119,15 @@ html {
 	width: 100%;
 }
 
+.contact__container__form {
+	display: flex;
+	flex-direction: column;
+}
+
+.btn {
+	color: black;
+}
+
 @media screen and (max-width: 1080px) {
 	.header__container__nav {
 		position: absolute;
@@ -128,7 +137,7 @@ html {
 		align-items: center;
 		gap: 22px;
 		background-color: white;
-		left: -50%;
+		left: -100%;
 		top: 0;
 		height: 100vh;
 		width: 50%;
@@ -146,6 +155,7 @@ html {
 
 	.header__container__burger_menu {
 		display: flex;
+		z-index: 1;
 	}
 }
 

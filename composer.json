@@ -1,8 +1,20 @@
 {
 	"require-dev": {
-		"altorouter/altorouter": "^2.0"
+		"altorouter/altorouter": "^2.0",
+		"bamarni/composer-bin-plugin": "^1.8"
 	},
 	"require": {
 		"phpmailer/phpmailer": "^6.9"
+	},
+	"scripts": {
+		"start-php": "php -S localhost:8000",
+		"start-bs": "browser-sync start --proxy \"localhost:8000\" --files \"./**/*\"",
+		"install-deps": "npm i -g browser-sync concurrently",
+		"start": "concurrently \"composer run-script start-php\" \"composer run-script start-bs\""
+	},
+	"config": {
+		"allow-plugins": {
+			"bamarni/composer-bin-plugin": true
+		}
 	}
 }

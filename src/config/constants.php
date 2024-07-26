@@ -36,6 +36,17 @@ const CSS_FOLDER = WEBSITE_FOLDER . "assets/css";
 const JS_FOLDER = WEBSITE_FOLDER . "assets/js";
 
 /**
+ * O caminho base do diretório de imagens.
+ * 
+ * Esse valor define o caminho para o diretório de imagens do website!
+ *
+ * Exemplo de  uso:
+ * - Se as imagens estiver dentro de uma pasta chamada `assets/images`,
+ * defina o valor como `WEBSITE_FOLDER . "assets/images"`
+ * */
+const IMAGE_FOLDER = WEBSITE_FOLDER . "assets/images";
+
+/**
  * Páginas não dinâmicas do website.
  *
  * Esta constante define uma lista de URLs para páginas que são estáticas e não geradas dinamicamente no website.
@@ -45,4 +56,4 @@ const JS_FOLDER = WEBSITE_FOLDER . "assets/js";
  * defina a constante com os caminhos relativos dessas páginas.
  *
  */
-const NON_DINAMIC_PAGES = ["/", "/404", "/mapa-site", "/agradecimentos", "/email-enviado"];
+const NON_DINAMIC_PAGES = ["/", "/404", "/mapa-site", "/agradecimentos", "/email-enviado", "/trabalhos"];
