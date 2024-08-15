@@ -10,7 +10,7 @@ $seoDataJson = $seoTextProvider->getSeoJsonArray();
 
 if ($isDinamicPage && is_null($seoTextProvider->getCurrentRouteSeoContent())) {
 	echo "<script type=\"text/javascript\">
-		window.location = \"" . WEBSITE_FOLDER . "/404\"
+		window.location = \"" . WEBSITE_FOLDER . "404\"
 			   </script>";
 }
 
