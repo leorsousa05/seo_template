@@ -2,7 +2,10 @@
 require_once('src/utils/websiteData.php');
 require_once('src/utils/seoDataFunctions.php');
 
-$isDinamicPage = !in_array($uri, NON_DINAMIC_PAGES);
+$nonDinamicPages = array_map(function($page) {
+    return WEBSITE_FOLDER . $page;
+}, NON_DINAMIC_PAGES);
+$isDinamicPage = !in_array($uri, $nonDinamicPages);
 
 $seoTextProvider = new SeoTextProvider($uri);
 $seoRouteData = $seoTextProvider->getCurrentRouteSeoContent();

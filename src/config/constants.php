@@ -56,4 +56,4 @@ const IMAGE_FOLDER = WEBSITE_FOLDER . "assets/images/";
  * defina a constante com os caminhos relativos dessas páginas.
  *
  */
-const NON_DINAMIC_PAGES = [WEBSITE_FOLDER, WEBSITE_FOLDER . "/404", WEBSITE_FOLDER . "/mapa-site", WEBSITE_FOLDER . "/agradecimentos", WEBSITE_FOLDER . "/email-enviado", WEBSITE_FOLDER . "/trabalhos"];
+const NON_DINAMIC_PAGES = ["", "404", "mapa-site", "agradecimentos", "email-enviado", "trabalhos"];

@@ -1,5 +1,4 @@
 <?php
-require_once("src/config/constants.php");
 require_once("src/config/imports.php");
 
 // Informações do Head
@@ -20,6 +19,8 @@ $showCredits = true;
 $creditsAuthor = "Digitall Evolution";
 $creditsUrl = "https://digitallevolution.com.br/";
 $creditsClientName = "";
+$redirectHomePage = false;
+$homePageRedirectTo = "";
 
 // CSS e Javascript usados no website.
 // Colocar CSS e JS crítico e importante para o carregamento da página

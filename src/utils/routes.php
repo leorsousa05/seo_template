@@ -7,10 +7,10 @@ $assetsRoutes = [
 	// Adicionar aqui Rotas da mesma forma como está abaixo
 	// Colocar o path do arquivo apenas, não colocar o nome do arquivo.
 	// exemplo: /assets/ e não /assets/main.js
-	new AssetsRequest("/assets/fonts", "Content-Type: application/font-woff2"),
-	new AssetsRequest("/assets/css/", "Content-Type: text/css"),
-	new AssetsRequest("/assets/images/", "Content-Type: image/webp"),
-	new AssetsRequest("/assets/js/", "Content-Type: text/javascript"),
+	new AssetsRequest("assets/fonts", "Content-Type: application/font-woff2"),
+	new AssetsRequest("assets/css/", "Content-Type: text/css"),
+	new AssetsRequest("assets/images/", "Content-Type: image/webp"),
+	new AssetsRequest("assets/js/", "Content-Type: text/javascript"),
 ];
 
 $pagesRoutes = [
@@ -19,13 +19,16 @@ $pagesRoutes = [
 	// Caso seja rotas dinamicas como páginas de SEO
 	// colocar no parametro da função is_dinamic: true
 	// coloque sempre páginas dinamicas no final da array
-	new PagesRequest("/", "src/pages/home.php"),
-	new PagesRequest("/email-enviado", "src/config/mailConfiguration.php"),
-	new PagesRequest("/404", "src/pages/404Page.php"),
-	new PagesRequest("/agradecimentos", "src/pages/thankYouPage.php"),
-	new PagesRequest("/mapa-site", "src/pages/sitemap.php"),
-	new PagesRequest("/deleter", "src/config/deleteSystem.php"),
-	new PagesRequest("/", "src/pages/conversionPage.php", true)
+	// Caso a página principal seja /alguma-coisa, deixe
+	// a primeira string vázia e preencha a constante
+	// website folder em src/config/constants.php
+	new PagesRequest("", "src/pages/home.php"),
+	new PagesRequest("email-enviado", "src/config/mailConfiguration.php"),
+	new PagesRequest("404", "src/pages/404Page.php"),
+	new PagesRequest("agradecimentos", "src/pages/thankYouPage.php"),
+	new PagesRequest("mapa-site", "src/pages/sitemap.php"),
+	new PagesRequest("deleter", "src/config/deleteSystem.php"),
+	new PagesRequest("", "src/pages/conversionPage.php", true)
 ];
 
 $archivesRoutes = [

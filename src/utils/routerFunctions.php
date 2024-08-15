@@ -10,7 +10,7 @@ class AssetsRequest extends Router
 
 	public function __construct(string $path, string $content_type)
 	{
-		$this->path = $path;
+		$this->path = WEBSITE_FOLDER . $path;
 		$this->content_type = $content_type;
 	}
 
@@ -34,7 +34,7 @@ class PagesRequest extends Router
 
 	public function __construct(string $path, string $page_archive_path, bool $is_dynamic = false)
 	{
-		$this->path = $path;
+		$this->path = WEBSITE_FOLDER . $path;
 		$this->page_archive_path = $page_archive_path;
 		$this->is_dinamic = $is_dynamic;
 	}
@@ -67,7 +67,7 @@ class SecondaryArchivesRequest extends Router
 
 	public function __construct(string $path, string $content_type)
 	{
-		$this->path = $path;
+		$this->path = WEBSITE_FOLDER . $path;
 		$this->content_type = $content_type;
 	}
 
