@@ -2,6 +2,7 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 
+require "src/config/constants.php";
 require 'src/utils/websiteData.php';
 
 $mail = new PHPMailer(true);
@@ -32,4 +33,4 @@ $mail->Body .=  utf8_decode("<strong>Nome: </strong>") . utf8_decode($nameForm) 
 $mail->MsgHTML($mail->Body);
 
 $mail->send();
-echo "<meta http-equiv='refresh' content='0; URL=/agradecimentos'>";
+echo '<meta http-equiv='refresh' content=\'0; URL=/agradecimentos\'>';

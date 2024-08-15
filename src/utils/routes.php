@@ -36,9 +36,9 @@ $archivesRoutes = [
 	// se encaixe nem no assets e nem no modules
 	// normalmente arquivos em que a gente especifica o nome
 	// e não faz a requisição pelo website
-	new SecondaryArchivesRequest("/google429e1c1077d88e4d.html", 'Content-Type: text/html'),
-	new SecondaryArchivesRequest("/sitemap.xml", 'Content-Type: application/xml'),
-	new SecondaryArchivesRequest('/robots.txt', 'Content-Type: text/plain')
+	new SecondaryArchivesRequest("google429e1c1077d88e4d.html", 'Content-Type: text/html'),
+	new SecondaryArchivesRequest("sitemap.xml", 'Content-Type: application/xml'),
+	new SecondaryArchivesRequest('robots.txt', 'Content-Type: text/plain')
 ];
 
 $routes = array_merge($archivesRoutes, $assetsRoutes, $pagesRoutes);
