@@ -2,8 +2,8 @@
 require_once('src/utils/websiteData.php');
 require_once('src/utils/seoDataFunctions.php');
 
-$nonDinamicPages = array_map(function($page) {
-    return WEBSITE_FOLDER . $page;
+$nonDinamicPages = array_map(function ($page) {
+	return WEBSITE_FOLDER . $page;
 }, NON_DINAMIC_PAGES);
 $isDinamicPage = !in_array($uri, $nonDinamicPages);
 
@@ -61,10 +61,20 @@ if ($showCredits) {
 	<link rel="canonical" href="<?= $websiteUrl ?><?= $uri ?>" />
 	<base href="/">
 
-	<?php foreach ($imagePreload as $key => $image) {
-		echo "<link rel=\"preload\" href=\"$image\" as=\"image\">";
-	}
+	<?php foreach ($websiteStylesheets as $key => $stylesheet) {
+		switch ($stylesheet->getType()) {
+			case DefaultAssetsImports::CRITICAL:
+				echo "<link rel=\"stylesheet\" href=\"" . $stylesheet->getUrl() . "\">";
+				break;
+			case DefaultAssetsImports::NONCRITICAL:
+				echo "
+        <link fetchPriority='high' rel=\"stylesheet\" href=\"" . $stylesheet->getUrl() . "\" media=\"print\" onload=\"this.media='all'\">
+        <noscript>
+            <link rel=\"stylesheet\" href=\"" . $stylesheet->getUrl() . "\">
+        </noscript>";
+		}
 	?>
+	<?php } ?>
 
 	<?php foreach ($websiteFonts as $key => $font) { ?>
 		<?php switch ($font->getType()) {
@@ -78,26 +88,19 @@ if ($showCredits) {
 		}
 		?>
 
-		<link href="<?= $font->getUrl() ?>" rel="stylesheet" media="print" onload="this.media='all'">
+		<link fetchPriority='high' href="<?= $font->getUrl() ?>" rel="stylesheet" media="print" onload="this.media='all'">
 		<noscript>
 			<link href="<?= $font->getUrl() ?>" rel="stylesheet">
 		</noscript>
 	<?php } ?>
 
-	<?php foreach ($websiteStylesheets as $key => $stylesheet) {
-		switch ($stylesheet->getType()) {
-			case DefaultAssetsImports::CRITICAL:
-				echo "<link rel=\"stylesheet\" href=\"" . $stylesheet->getUrl() . "\">";
-				break;
-			case DefaultAssetsImports::NONCRITICAL:
-				echo "
-        <link rel=\"stylesheet\" href=\"" . $stylesheet->getUrl() . "\" media=\"print\" onload=\"this.media='all'\">
-        <noscript>
-            <link rel=\"stylesheet\" href=\"" . $stylesheet->getUrl() . "\">
-        </noscript>";
-		}
+
+
+	<?php foreach ($imagePreload as $key => $image) {
+		echo "<link rel=\"preload\" href=\"$image\" as=\"image\">";
+	}
 	?>
-	<?php } ?>
+
 
 	<?php if ($gtm) : ?>
 		<script>

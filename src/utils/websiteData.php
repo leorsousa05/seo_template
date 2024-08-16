@@ -28,13 +28,13 @@ $homePageRedirectTo = "";
 // Oque não for importante como sliders e fontawesome, colocar no 
 // nonImportant para o carregamento ser mais rápido.
 $websiteStylesheets = [
-	new AssetsImports(CSS_FOLDER . "/main.css", DefaultAssetsImports::CRITICAL),
-	new AssetsImports(CSS_FOLDER .  "/components.css", DefaultAssetsImports::CRITICAL),
+	new AssetsImports(CSS_FOLDER . "main.css", DefaultAssetsImports::CRITICAL),
+	new AssetsImports(CSS_FOLDER .  "components.css", DefaultAssetsImports::CRITICAL),
 	new AssetsImports("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css", DefaultAssetsImports::NONCRITICAL)
 ];
 
 $websiteScripts = [
-	new AssetsImports(JS_FOLDER . "/main.js", DefaultAssetsImports::CRITICAL),
+	new AssetsImports(JS_FOLDER . "main.js", DefaultAssetsImports::CRITICAL),
 	new AssetsImports("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js", DefaultAssetsImports::NONCRITICAL)
 ];
 
@@ -52,7 +52,7 @@ $host           = "smtp.gmail.com";                       // Host SMTP
 $hostUsername  = "digitallevolutionenvio@gmail.com";                       // Email do Host
 $hostPassword  = "nvgt zzya dqie qhce";                       // Senha do Host
 
-if (str_contains($uri, WEBSITE_FOLDER . "/email-enviado")) {
+if (str_contains($uri, WEBSITE_FOLDER . "email-enviado")) {
 	$mailForm      = $_GET["email"];
 	$nameForm      = $_GET["name"];
 	$phoneNumber   = $_GET["phone-number"];

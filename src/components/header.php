@@ -7,8 +7,8 @@
 		<ul class="header__container__nav" id="nav_menu">
 			<li><a class="header__container__nav__item" href="#">Home</a></li>
 			<li><a class="header__container__nav__item" href="#">Quem Somos</a></li>
-			<li><a class="header__container__nav__item">Portfolio</a></li>
-			<li><a class="header__container__nav__item">Contato</a></li>
+			<li><a class="header__container__nav__item" href="#">Portfolio</a></li>
+			<li><a class="header__container__nav__item" href="#">Contato</a></li>
 		</ul>
 
 		<div class="header__container__burger_menu" id="burger_menu">
