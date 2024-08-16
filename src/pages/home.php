@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <?php include 'src/components/head.php'; ?>
+<?php
+if ($redirectHomePage) {
+	header("Location: " . $homePageRedirectTo);
+}
+?>
 
 <body>
 	<?php include 'src/components/header.php' ?>
