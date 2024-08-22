@@ -1,6 +1,8 @@
 <?php
 require_once("src/config/imports.php");
 
+use Leafo\ScssPhp\Compiler;
+
 // Informações do Head
 $uri = $_SERVER["REQUEST_URI"];
 $websiteTitle          = "";
@@ -47,6 +49,12 @@ $imagePreload = [
 	"https://www.hubspot.com/hs-fs/hubfs/Shell_logo.svg.png?width=450&height=417&name=Shell_logo.svg.png"
 ];
 
+$scss = new Compiler();
+$scss->setFormatter('Leafo\ScssPhp\Formatter\Compressed');
+$scss->setImportPaths('assets/scss/');
+
+$compiledCss = $scss->compile('@import "main.scss";');
+file_put_contents("assets/css/main.css", $compiledCss);
 
 $host           = "smtp.gmail.com";                       // Host SMTP
 $hostUsername  = "digitallevolutionenvio@gmail.com";                       // Email do Host

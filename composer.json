@@ -4,7 +4,8 @@
 		"bamarni/composer-bin-plugin": "^1.8"
 	},
 	"require": {
-		"phpmailer/phpmailer": "^6.9"
+		"phpmailer/phpmailer": "^6.9",
+		"leafo/scssphp": "^0.8.2"
 	},
 	"scripts": {
 		"start-php": "php -S localhost:8000",

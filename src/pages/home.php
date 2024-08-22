@@ -12,6 +12,7 @@ if ($redirectHomePage) {
 	<main>
 		<?php include 'src/components/hero.php' ?>
 		<?php include 'src/components/contact.php' ?>
+		<?php include 'src/components/services.php' ?>
 	</main>
 	<?php include 'src/components/footer.php' ?>
 	<?php include 'src/utils/scripts.php' ?>

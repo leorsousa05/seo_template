@@ -1,0 +1,16 @@
+.hero {
+  @include container;
+
+  height: calc(100vh - 100px);
+
+  &__container {
+    justify-content: center;
+    align-items: center;
+
+
+    &__title {
+      font-size: 4rem;
+      color: white;
+    }
+  }
+}

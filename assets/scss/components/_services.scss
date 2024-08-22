@@ -1,0 +1,11 @@
+.services {
+  @include container;
+
+  background-color: white;
+
+  &__container {
+    justify-content: center;
+
+  }
+
+}
