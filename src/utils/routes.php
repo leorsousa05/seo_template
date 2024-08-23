@@ -9,8 +9,10 @@ $assetsRoutes = [
 	// exemplo: /assets/ e não /assets/main.js
 	new AssetsRequest("assets/fonts", "Content-Type: application/font-woff2"),
 	new AssetsRequest("assets/css/", "Content-Type: text/css"),
+	new AssetsRequest("assets/scss/", "Content-Type: text/webp"),
 	new AssetsRequest("assets/images/", "Content-Type: image/webp"),
-	new AssetsRequest("assets/js/", "Content-Type: text/javascript"),
+	new AssetsRequest("assets/js/", "Content-Type: application/javascript"),
+	new AssetsRequest("@vite/", "Content-Type: application/javascript"),
 ];
 
 $pagesRoutes = [

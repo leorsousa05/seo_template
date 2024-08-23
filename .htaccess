@@ -1,3 +1,13 @@
+RewriteCond %{REQUEST_URI} !^/assets/.*$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteRule ^ index.php [L]
+
+<FilesMatch "\.(env|json|lock|md|yml|yaml|php|inc|bak|xml)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE application/javascript
     AddOutputFilterByType DEFLATE application/rss+xml
@@ -55,12 +65,7 @@
   ExpiresByType application/pdf "access plus 1 year"
   ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
 </IfModule>
+AddType application/javascript .js
 Options +FollowSymLinks
-RewriteEngine On
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d 
-RewriteRule ^ index.php [L]
-RewriteCond %{HTTPS} !=on
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 

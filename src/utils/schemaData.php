@@ -1,5 +1,5 @@
 <?php
-$logoLocation = IMAGE_FOLDER . "/logo.webp";
+$logoLocation = IMAGE_FOLDER . "logo.webp";
 $phoneNumber = "";
 $address = "";
 $city = "";
@@ -20,7 +20,7 @@ $comments = rand(35, 52);
 		"mainEntityOfPage": "<?= $websiteUrl ?>",
 		"name": "<?= $websiteName ?>",
 		"url": "<?= $websiteUrl ?>",
-		"logo": "<?= $websiteUrl . IMAGE_FOLDER .  "/logo.webp" ?>",
+		"logo": "<?= $websiteUrl . IMAGE_FOLDER .  "logo.webp" ?>",
 		"description": "<?= $websiteDescription ?>",
 		"aggregateRating": {
 			"@type": "AggregateRating",
@@ -47,7 +47,7 @@ $comments = rand(35, 52);
 			"addressCountry": "<?= $country ?>"
 		}
 	}, {
-		"thumbnailUrl": "<?= $websiteUrl . IMAGE_FOLDER . "/logo-data.webp" ?>",
+		"thumbnailUrl": "<?= $websiteUrl . IMAGE_FOLDER . "logo-data.webp" ?>",
 		"description": "<?= $websiteDescription ?>",
 		"inLanguage": "<?= $language ?>",
 		"potentialAction": [{
@@ -60,8 +60,8 @@ $comments = rand(35, 52);
 		"@type": "ImageObject",
 		"inLanguage": "<?= $language ?>",
 		"@id": "<?= $websiteUrl ?>",
-		"url": "<?= $websiteUrl . IMAGE_FOLDER . "/logo-data.webp" ?>",
-		"contentUrl": "<?= $websiteUrl . IMAGE_FOLDER . "/logo-data.webp" ?>",
+		"url": "<?= $websiteUrl . IMAGE_FOLDER . "logo-data.webp" ?>",
+		"contentUrl": "<?= $websiteUrl . IMAGE_FOLDER . "logo-data.webp" ?>",
 		"width": 768,
 		"height": 768,
 		"caption": "Logo <?= $websiteName ?>"

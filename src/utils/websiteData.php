@@ -1,9 +1,10 @@
 <?php
 require_once("src/config/imports.php");
 
-use Leafo\ScssPhp\Compiler;
+// Enquanto estiver desenvolvendo, coloque no APP_ENV que seja igual a `true`
+// Quando estiver em produção, coloque `false`
+$isDev = true;
 
-// Informações do Head
 $uri = $_SERVER["REQUEST_URI"];
 $websiteTitle          = "";
 $websiteName           = "";
@@ -24,49 +25,22 @@ $creditsClientName = "";
 $redirectHomePage = false;
 $homePageRedirectTo = "";
 
-// CSS e Javascript usados no website.
-// Colocar CSS e JS crítico e importante para o carregamento da página
-// nas arrays critical.
-// Oque não for importante como sliders e fontawesome, colocar no 
-// nonImportant para o carregamento ser mais rápido.
-$websiteStylesheets = [
-	new AssetsImports(CSS_FOLDER . "main.css", DefaultAssetsImports::CRITICAL),
-	new AssetsImports(CSS_FOLDER .  "components.css", DefaultAssetsImports::CRITICAL),
-	new AssetsImports("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css", DefaultAssetsImports::NONCRITICAL)
-];
-
-$websiteScripts = [
-	new AssetsImports(JS_FOLDER . "main.js", DefaultAssetsImports::CRITICAL),
-	new AssetsImports("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js", DefaultAssetsImports::NONCRITICAL)
-];
-
-// Fontes do website para preload
+// Website StyleSheets, scripts, font e image preload.
+$websiteStylesheets = [];
+$websiteScripts = [];
 $websiteFonts = [
 	new Font("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap", FontCDNImporter::GOOGLE),
 ];
+$imagePreload = [];
 
-$imagePreload = [
-	"https://www.hubspot.com/hs-fs/hubfs/Shell_logo.svg.png?width=450&height=417&name=Shell_logo.svg.png"
-];
-
-$scss = new Compiler();
-$scss->setFormatter('Leafo\ScssPhp\Formatter\Compressed');
-$scss->setImportPaths('assets/scss/');
-
-$compiledCss = $scss->compile('@import "main.scss";');
-file_put_contents("assets/css/main.css", $compiledCss);
-
-$host           = "smtp.gmail.com";                       // Host SMTP
-$hostUsername  = "digitallevolutionenvio@gmail.com";                       // Email do Host
-$hostPassword  = "nvgt zzya dqie qhce";                       // Senha do Host
-
-if (str_contains($uri, WEBSITE_FOLDER . "email-enviado")) {
-	$mailForm      = $_GET["email"];
-	$nameForm      = $_GET["name"];
-	$phoneNumber   = $_GET["phone-number"];
-	$message        = $_GET["message"];
+if ($isDev) {
+	$websiteScripts[] = new AssetsImports("http://localhost:5173/@vite/client", DefaultAssetsImports::CRITICAL);
+	$websiteScripts[] = new AssetsImports("http://localhost:5173/assets/js/main.js", DefaultAssetsImports::CRITICAL);
+} else {
+	$manifestPath = 'dist/.vite/manifest.json';
+	$manifest = json_decode(file_get_contents($manifestPath), true);
+	$mainJs = $manifest['assets/js/main.js']['file'];
+	$mainCss = $manifest['assets/scss/main.scss']['file'];
+	$websiteScripts[] = new AssetsImports("/dist/" . $mainJs, DefaultAssetsImports::CRITICAL);
+	$websiteStylesheets[] = new AssetsImports("/dist/" . $mainCss, DefaultAssetsImports::CRITICAL);
 }
-$subject        = "";                       // Assunto do Email
-$date           = date("d/m/Y H:i:s");      // Data de Envio
-$ip             = $_SERVER['REMOTE_ADDR'];  // IP do Usuário
-$receiver       = "";                       // Pessoa que Recebe o Email

@@ -1,27 +1,41 @@
 <?php
 
+require 'src/utils/websiteData.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 
-require "src/config/constants.php";
-require 'src/utils/websiteData.php';
+$host           = "smtp.gmail.com";                       
+$hostUsername  = "digitallevolutionenvio@gmail.com";                       
+$hostPassword  = "nvgt zzya dqie qhce";                       
+
+if (str_contains($uri, WEBSITE_FOLDER . "email-enviado")) {
+	$mailForm      = $_GET["email"];
+	$nameForm      = $_GET["name"];
+	$phoneNumber   = $_GET["phone-number"];
+	$message        = $_GET["message"];
+}
+$subject        = "";                       
+$date           = date("d/m/Y H:i:s");      
+$ip             = $_SERVER['REMOTE_ADDR'];  
+$receiver       = "";                       
+
 
 $mail = new PHPMailer(true);
 
-// EMAIL SENDER CONFIGURATIONS
 $mail->isSMTP();
-$mail->Host       = $host;                     //Set the SMTP server to send through
-$mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-$mail->Username   = $hostUsername;                     //SMTP username
-$mail->Password   = $hostPassword;                               //SMTP password
-$mail->SMTPSecure = 'tls';            //Enable implicit TLS encryption
-$mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+$mail->Host       = $host;                     
+$mail->SMTPAuth   = true;                                   
+$mail->Username   = $hostUsername;                     
+$mail->Password   = $hostPassword;                               
+$mail->SMTPSecure = 'tls';            
+$mail->Port       = 587;                                    
 
 $mail->From       = $hostUsername;
 $mail->FromName   = $nameForm;
 $mail->Sender     = $hostUsername;
 
-// EMAIL CONTENT CONFIGURATIONS
-$mail->isHTML(true);                                  //Set email format to HTML
+
+$mail->isHTML(true);                                  
 $mail->AddAddress($receiver);
 $mail->AddReplyTo("teste@gmail.com", $nameForm);
 $mail->Subject = utf8_decode($subject);

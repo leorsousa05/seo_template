@@ -1,7 +1,10 @@
 .header {
-  height: 100px;
-  display: flex;
-  justify-content: center;
+
+  & {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+  }
 
   &__container {
     display: flex;

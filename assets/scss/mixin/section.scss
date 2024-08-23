@@ -1,6 +1,8 @@
 @mixin container {
-  display: flex;
-  justify-content: center;
+  & {
+    display: flex;
+    justify-content: center;
+  }
 
   &__container {
     display: flex;

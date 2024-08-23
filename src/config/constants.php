@@ -22,7 +22,7 @@ const WEBSITE_FOLDER = "/";
  * - Se os arquivos CSS estiver dentro de uma pasta chamada `assets/estilos`,
  * defina o valor como `WEBSITE_FOLDER . "assets/estilos"`
  * */
-const CSS_FOLDER = WEBSITE_FOLDER . "assets/css/";
+const SCSS_FOLDER = WEBSITE_FOLDER . "assets/scss/";
 
 /**
  * O caminho base do diretório de scripts.

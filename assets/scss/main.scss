@@ -1,9 +1,9 @@
 // Mixins
-@import "mixin/section.scss";
+@import "mixin/section";
 
 // Variables
-@import "variables/colors.scss";
-@import "variables/breakpoints.scss";
+@import "variables/colors";
+@import "variables/breakpoints";
 
 // Components
 @import "components/header";
@@ -11,6 +11,7 @@
 @import "components/hero";
 @import "components/services";
 
+// Global styles
 * {
   margin: 0;
   padding: 0;
@@ -20,5 +21,7 @@
 }
 
 body {
-  background-color: $bg-clr;
+  & {
+    background-color: $bg-clr;
+  }
 }
