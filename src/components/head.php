@@ -58,6 +58,7 @@ if ($showCredits) {
 	<meta property="og:region" content="Brasil" />
 	<meta property="og:author" content="<?= $websiteAuthor ?>" />
 	<meta property="og:site_name" content="<?= $websiteName ?>" />
+	<link rel="icon" type="image/x-icon" href="<?= IMAGE_FOLDER ?>/logo.webp">
 	<link rel="canonical" href="<?= $websiteUrl ?><?= $uri ?>" />
 	<base href="/">
 
@@ -104,20 +105,34 @@ if ($showCredits) {
 
 	<?php if ($gtm) : ?>
 		<script>
-			(function(w, d, s, l, i) {
-				w[l] = w[l] || [];
-				w[l].push({
+			function loadGTM() {
+				window.dataLayer = window.dataLayer || [];
+				window.dataLayer.push({
 					'gtm.start': new Date().getTime(),
 					event: 'gtm.js'
 				});
-				var f = d.getElementsByTagName(s)[0],
-					j = d.createElement(s),
-					dl = l != 'dataLayer' ? '&l=' + l : '';
-				j.async = true;
-				j.src =
-					'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-				f.parentNode.insertBefore(j, f);
-			})(window, document, 'script', 'dataLayer', 'GTM-<?= $gtm ?>');
+				var gtmScript = document.createElement('script');
+				gtmScript.async = true;
+				gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-<?= $gtm ?>';
+				document.getElementsByTagName('head')[0].appendChild(gtmScript);
+			}
+
+			function checkUserActivity() {
+				document.removeEventListener('mousemove', checkUserActivity);
+				document.removeEventListener('keydown', checkUserActivity);
+				document.removeEventListener('scroll', checkUserActivity);
+				loadGTM();
+			}
+
+			document.addEventListener('mousemove', checkUserActivity, {
+				once: true
+			});
+			document.addEventListener('keydown', checkUserActivity, {
+				once: true
+			});
+			document.addEventListener('scroll', checkUserActivity, {
+				once: true
+			});
 		</script>
 	<?php endif ?>
 </head>
