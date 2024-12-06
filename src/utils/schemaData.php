@@ -39,7 +39,7 @@ $schema = [
 		"reviewCount" => $comments
 	],
 	"sameAs" => [
-		"https://facebook.com/yourcompany", // Add social media links
+		"https://facebook.com/yourcompany",
 		"https://twitter.com/yourcompany",
 		"https://linkedin.com/company/yourcompany"
 	],
