@@ -9,6 +9,7 @@
 		<?php require "src/components/sitemapLinks.php" ?>
 	</main>
 	<?php include 'src/components/footer.php' ?>
+	<?php include 'src/utils/scripts.php' ?>
 </body>
 
 </html>
