@@ -44,23 +44,45 @@ if ($showCredits) {
 		<title><?= $websiteTitle ?></title>
 	<?php } ?>
 
-	<meta name="geo.region" content="<?= $geoRegion ?>" />
-	<meta name="geo.position" content="<?= $geoPosition ?>" />
-	<meta name="ICBM" content="<?= $classification ?>" />
-	<meta name="classification" content="<?= $classification ?>" />
-	<meta name="keywords" content="<?= $websiteKeywords ?>">
-	<meta name="author" content="<?= $websiteAuthor ?>">
-	<meta name="robots" content="index,follow">
-	<meta property="publisher" content="<?= $websiteAuthor ?>" />
-	<meta property="og:url" content="<?= $websiteUrl ?><?= $uri ?>" />
+	<?php if (isset($geoRegion)) { ?>
+		<meta name="geo.region" content="<?= $geoRegion ?>" />
+	<?php } ?>
+	<?php if (isset($geoPosition)) { ?>
+		<meta name="geo.position" content="<?= $geoPosition ?>" />
+	<?php } ?>
+	<?php if (isset($classification)) { ?>
+		<meta name="ICBM" content="<?= $classification ?>" />
+	<?php } ?>
+	<?php if (isset($classification)) { ?>
+		<meta name="classification" content="<?= $classification ?>" />
+	<?php } ?>
+	<?php if (isset($websiteKeywords)) { ?>
+		<meta name="keywords" content="<?= $websiteKeywords ?>">
+	<?php } ?>
+	<?php if (isset($websiteAuthor)) { ?>
+		<meta name="author" content="<?= $websiteAuthor ?>">
+	<?php } ?>
+	<?php if ($indexPage) { ?>
+		<meta name="robots" content="index,follow">
+	<?php } ?>
+	<?php if (!$indexPage) { ?>
+		<meta name="robots" content="noindex, nofollow">
+	<?php } ?>
+	<?php if ($websiteAuthor) { ?>
+		<meta property="publisher" content="<?= $websiteAuthor ?>" />
+		<meta property="og:author" content="<?= $websiteAuthor ?>" />
+	<?php } ?>
+	<?php if ($websiteUrl) { ?>
+		<meta property="og:url" content="<?= $websiteUrl ?><?= $uri ?>" />
+		<link rel="canonical" href="<?= $websiteUrl ?><?= $uri ?>" />
+	<?php } ?>
+	<?php if ($websiteName) { ?>
+		<meta property="og:site_name" content="<?= $websiteName ?>" />
+	<?php } ?>
 	<meta property="og:type" content="website" />
 	<meta property="og:locale" content="pt_BR" />
 	<meta property="og:region" content="Brasil" />
-	<meta property="og:author" content="<?= $websiteAuthor ?>" />
-	<meta property="og:site_name" content="<?= $websiteName ?>" />
 	<link rel="icon" type="image/x-icon" href="<?= IMAGE_FOLDER ?>/logo.webp">
-	<link rel="canonical" href="<?= $websiteUrl ?><?= $uri ?>" />
-	<base href="/">
 
 	<?php foreach ($websiteStylesheets as $key => $stylesheet) {
 		switch ($stylesheet->getType()) {
