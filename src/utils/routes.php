@@ -2,11 +2,7 @@
 require 'routerFunctions.php';
 $router = new AltoRouter();
 
-
 $assetsRoutes = [
-	// Adicionar aqui Rotas da mesma forma como está abaixo
-	// Colocar o path do arquivo apenas, não colocar o nome do arquivo.
-	// exemplo: /assets/ e não /assets/main.js
 	new AssetsRequest("assets/fonts", "Content-Type: application/font-woff2"),
 	new AssetsRequest("assets/css/", "Content-Type: text/css"),
 	new AssetsRequest("assets/scss/", "Content-Type: text/webp"),
@@ -16,14 +12,6 @@ $assetsRoutes = [
 ];
 
 $pagesRoutes = [
-	// Colocar aqui rotas de páginas.
-	// Primeiro o Path e depois passar o page_path
-	// Caso seja rotas dinamicas como páginas de SEO
-	// colocar no parametro da função is_dinamic: true
-	// coloque sempre páginas dinamicas no final da array
-	// Caso a página principal seja /alguma-coisa, deixe
-	// a primeira string vázia e preencha a constante
-	// website folder em src/config/constants.php
 	new PagesRequest("", "src/pages/home.php"),
 	new PagesRequest("email-enviado", "src/config/mailConfiguration.php"),
 	new PagesRequest("404", "src/pages/404Page.php"),
@@ -34,16 +22,57 @@ $pagesRoutes = [
 ];
 
 $archivesRoutes = [
-	// Aqui você coloca rotas de arquivos que não
-	// se encaixe nem no assets e nem no modules
-	// normalmente arquivos em que a gente especifica o nome
-	// e não faz a requisição pelo website
 	new SecondaryArchivesRequest("google429e1c1077d88e4d.html", 'Content-Type: text/html'),
-	new SecondaryArchivesRequest("sitemap.xml", 'Content-Type: application/xml'),
-	new SecondaryArchivesRequest('robots.txt', 'Content-Type: text/plain')
 ];
 
+$dynamicRobotsRoute = new DynamicFileRequest("robots.txt", "Content-Type: text/plain", function () {
+	echo "User-agent: *\n";
+	echo "Disallow: /src\n";
+	echo "Allow: /\n";
+	echo "Sitemap: " . $_SERVER["SERVER_NAME"] . "/sitemap.xml";
+});
+
+$dynamicSitemapRoute = new DynamicFileRequest("sitemap.xml", "Content-Type: application/xml", function () {
+	$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? "https://" : "http://";
+	$domain = $protocol . $_SERVER['SERVER_NAME'] . "/";
+	$seoDataJson = json_decode(file_get_contents('seoData.json'), true);
+	$lastMod = date('Y-m-d');
+
+	$manualUrls = [
+		"",
+	];
+
+	echo '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
+	echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";
+
+	foreach ($manualUrls as $slug) {
+		$url = $domain . $slug;
+		echo "  <url>\n";
+		echo "    <loc>" . htmlspecialchars($url, ENT_XML1, 'UTF-8') . "</loc>\n";
+		echo "    <lastmod>" . $lastMod . "</lastmod>\n";
+		echo "    <changefreq>weekly</changefreq>\n";
+		echo "    <priority>0.9</priority>\n";
+		echo "  </url>\n";
+	}
+
+	foreach ($seoDataJson as $slug => $data) {
+		$url = $domain . $slug;
+		echo "  <url>\n";
+		echo "    <loc>" . htmlspecialchars($url, ENT_XML1, 'UTF-8') . "</loc>\n";
+		echo "    <lastmod>" . $lastMod . "</lastmod>\n";
+		echo "    <changefreq>weekly</changefreq>\n";
+		echo "    <priority>0.8</priority>\n";
+		echo "  </url>\n";
+	}
+
+	echo '</urlset>';
+});
+
+
 $routes = array_merge($archivesRoutes, $assetsRoutes, $pagesRoutes);
+
+$routes[] = $dynamicRobotsRoute;
+$routes[] = $dynamicSitemapRoute;
 
 foreach ($routes as $key => $file) {
 	$file->get_route($router);

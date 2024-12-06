@@ -7,7 +7,7 @@
 		"phpmailer/phpmailer": "^6.9"
 	},
 	"scripts": {
-		"start-php": "php -S localhost:8000",
+		"start-php": "php -S localhost:8000 index.php",
 		"start-bs": "browser-sync start --proxy \"localhost:8000\" --files \"./**/*\"",
 		"install-deps": "npm i -g browser-sync concurrently vite",
 		"start-vite": "vite",
